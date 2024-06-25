@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .container {
+            background-color: white;
+            width: 360px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        
+        .cart-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 20px;
+        }
+        
+        .cart-header h2 {
+            margin: 0;
+        }
+        
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        
+        .tabs button {
+            background-color: transparent;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            padding: 10px;
+            margin: 0 5px;
+        }
+        
+        .tabs button a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        
+        .tabs .active {
+            border-bottom: 2px solid #007bff;
+        }
+        
+        .cart-item {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+        
+        .cart-item img {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            object-fit: cover;
+            margin-right: 10px;
+        }
+        
+        .item-details {
+            flex: 1;
+        }
+        
+        .item-name {
+            font-size: 16px;
+            margin: 0;
+        }
+        
+        .item-price {
+            font-size: 16px;
+            color: #666;
+            margin: 0;
+        }
+        
+        .quantity {
+            display: flex;
+            align-items: center;
+        }
+        
+        .quantity-input {
+            width: 40px;
+            text-align: center;
+            margin: 0 5px;
+            font-size: 16px;
+        }
+        
+        .change-quantity {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+        }
+        
+        .remove-item {
+            background-color: #ff0000;
+            color: white;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px solid #ccc;
+        }
+        
+        .total-price {
+            font-size: 18px;
+        }
+        
+        .continue-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        
+        .continue-button a {
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="cart">
+            <div class="cart-header">
+                <h2>Your Cart</h2>
+                <p>Below are the links to access different sections:</p>
+                <div class="tabs">
+                    <button><a href="homepage.html">Homepage</a></button>
+                    <button><a href="About us.html">About Us</a></button>
+                    <button><a href="Reacht us.html">Reach Us</a></button>
+                </div>
+            </div>
+            <!-- Items will be dynamically inserted here -->
+            <div class="cart-total">
+                <p>Total: <span class="total-price">0 IDR</span></p>
+                <button class="continue-button"><a href="Check out.html">Continue</a></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ambil data keranjang dari localStorage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Element untuk menampung item keranjang
+            const cartContainer = document.querySelector('.cart');
+
+            // Fungsi untuk memperbarui total harga
+            function updateTotalPrice() {
+                let totalPrice = 0;
+                cart.forEach(item => {
+                    const quantity = parseInt(item.element.querySelector('.quantity-input').value) || 1; // Jika kosong, defaultnya adalah 1
+                    totalPrice += item.price * quantity;
+                });
+                document.querySelector('.total-price').textContent = totalPrice.toLocaleString('en-US', {
+                    style: 'currency',
+                    currency: 'IDR'
+                });
+            }
+
+            // Render item-item keranjang
+            cart.forEach((item, index) => {
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+                cartItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="item-details">
+                        <p class="item-name">${item.name}</p>
+                        <p class="item-price">${item.price.toLocaleString('en-US', {
+                            style: 'currency',
+                            currency: 'IDR'
+                        })}</p>
+                    </div>
+                    <div class="quantity">
+                        <button class="change-quantity" data-action="decrease">-</button>
+                        <input type="text" class="quantity-input" value="${item.quantity || 1}"> <!-- Defaultnya adalah 1 jika quantity tidak ada atau kosong -->
+                        <button class="change-quantity" data-action="increase">+</button>
+                    </div>
+                    <button class="remove-item">Hapus</button>
+                `;
+                cartContainer.insertBefore(cartItem, document.querySelector('.cart-total'));
+
+                // Simpan referensi elemen item di objek item
+                item.element = cartItem;
+
+                // Event listener untuk tombol tambah/kurang jumlah item
+                cartItem.querySelector('.change-quantity[data-action="decrease"]').addEventListener('click', function() {
+                    const inputElement = cartItem.querySelector('.quantity-input');
+                    let currentValue = parseInt(inputElement.value) || 1;
+                    if (currentValue > 1) {
+                        inputElement.value = currentValue - 1;
+                        updateTotalPrice();
+                    }
+                });
+
+                cartItem.querySelector('.change-quantity[data-action="increase"]').addEventListener('click', function() {
+                    const inputElement = cartItem.querySelector('.quantity-input');
+                    let currentValue = parseInt(inputElement.value) || 1;
+                    inputElement.value = currentValue + 1;
+                    updateTotalPrice();
+                });
+
+                cartItem.querySelector('.remove-item').addEventListener('click', function() {
+                    const itemName = cartItem.querySelector('.item-name').textContent;
+                    cart = cart.filter(item => item.name !== itemName);
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    cartItem.remove();
+                    updateTotalPrice();
+                });
+            });
+
+            updateTotalPrice();
+        });
+    </script>
+</body>
+
+</html>

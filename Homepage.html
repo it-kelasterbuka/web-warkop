@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WARJOK - Warung Podjok</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="Logo.png" alt="Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Homepage</a></li>
+                <li><a href="About us.html">About Us</a></li>
+                <li><a href="Reacht us.html">Reach Us</a></li>
+                <li>
+                    <a href="cart.html"><img src="keranjang.jpg" alt="Cart" height="20px"></a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="main-content">
+            <div class="background">
+                <img src="coklat.webp" alt="Coffee Beans" class="background-image">
+            </div>
+        </div>
+        <section class="menu">
+            <div class="product-list">
+                <!-- Product 1 -->
+                <div class="product-item">
+                    <img src="kapal api.jfif.jpg" alt="Kopi Hitam">
+                    <h3>Kopi Hitam</h3>
+                    <p>5,000 IDR</p>
+                    <div class="btn-container">
+                        <button onclick="addToCart('Kopi Hitam', 5000, 'kapal api.jfif.jpg')">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-item">
+                    <img src="indomie.jpg" alt="Mie all Varian">
+                    <h3>Mie all Varian</h3>
+                    <p>15,000 IDR</p>
+                    <div class="btn-container">
+                        <button onclick="addToCart('Mie all Varian', 15000, 'indomie.jpg')">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-item">
+                    <img src="bubut.jpeg" alt="Bubur">
+                    <h3>Bubur</h3>
+                    <p>10,000 IDR</p>
+                    <div class="btn-container">
+                        <button onclick="addToCart('Bubur', 10000, 'bubut.jpeg')">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-item">
+                    <img src="nutrisari.jpg" alt="Nutrisari">
+                    <h3>Nutrisari</h3>
+                    <p>5,000 IDR</p>
+                    <div class="btn-container">
+                        <button onclick="addToCart('Nutrisari', 5000, 'nutrisari.jpg')">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-item">
+                    <img src="goodday.webp" alt="Goodday">
+                    <h3>Goodday</h3>
+                    <p>7,000 IDR</p>
+                    <div class="btn-container">
+                        <button onclick="addToCart('Goodday', 7000, 'goodday.webp')">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-item">
+                    <img src="jeruk.png" alt="Jeruk Peras">
+                    <h3>Jeruk Peras</h3>
+                    <p>8,000 IDR</p>
+                    <div class="btn-container">
+                        <button onclick="addToCart('Jeruk Peras', 8000, 'jeruk.png')">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 7 -->
+                <div class="product-item">
+                    <img src="esteh.jpg" alt="Es Teh">
+                    <h3>Es Teh</h3>
+                    <p>5,000 IDR</p>
+                    <div class="btn-container">
+                        <button onclick="addToCart('Es Teh', 5000, 'esteh.jpg')">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 8 -->
+                <div class="product-item">
+                    <img src="tehtarik.jpg" alt="Teh Tarik">
+                    <h3>Teh Tarik</h3>
+                    <p>8,000 IDR</p>
+                    <div class="btn-container">
+                        <button onclick="addToCart('Teh Tarik', 8000, 'tehtarik.jpg')">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 9 -->
+                <div class="product-item">
+                    <img src="pisang.jpg" alt="Pisang Bakar">
+                    <h3>Pisang Bakar</h3>
+                    <p>15,000 IDR</p>
+                    <div class="btn-container">
+                        <button onclick="addToCart('Pisang Bakar', 15000, 'pisang.jpg')">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 10 -->
+                <div class="product-item">
+                    <img src="roti.webp" alt="Roti Bakar">
+                    <h3>Roti Bakar</h3>
+                    <p>12,000 IDR</p>
+                    <div class="btn-container">
+                        <button onclick="addToCart('Roti Bakar', 12000, 'roti.webp')">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 11 -->
+                <div class="product-item">
+                    <img src="ayam geprek.avif" alt="Ayam Geprek Cabe Ijo">
+                    <h3>Ayam Geprek Cabe Ijo</h3>
+                    <p>18,000 IDR</p>
+                    <div class="btn-container">
+                        <button onclick="addToCart('Ayam Geprek Cabe Ijo', 18000, 'ayam geprek.avif')">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 12 -->
+                <div class="product-item">
+                    <img src="kentang goreng.jpg" alt="Kentang Goreng">
+                    <h3>Kentang Goreng</h3>
+                    <p>20,000 IDR</p>
+                    <div class="btn-container">
+                        <button onclick="addToCart('Kentang Goreng', 20000, 'kentang goreng.jpg')">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Fungsi untuk menambahkan produk ke keranjang
+        function addToCart(productName, price, image) {
+            // Ambil data keranjang dari localStorage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Tambah item baru ke keranjang
+            cart.push({
+                name: productName,
+                price: price,
+                image: image
+            });
+
+            // Simpan kembali ke localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            alert(`Added ${productName} to Cart`);
+        }
+    </script>
+</body>
+
+</html>

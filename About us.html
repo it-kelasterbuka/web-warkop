@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .header img.logo {
+            height: 50px;
+        }
+        
+        .navbar a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
+        }
+        
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+        
+        .cart,
+        .profile {
+            display: flex;
+            align-items: center;
+        }
+        
+        .cart img,
+        .profile img {
+            width: 24px;
+            height: 24px;
+        }
+        
+        .cart-count {
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 12px;
+            margin-left: 5px;
+        }
+        
+        .main-content {
+            position: relative;
+            text-align: center;
+            padding-top: 60px;
+        }
+        
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+        
+        .background-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .about-us {
+            padding: 60px 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            display: inline-block;
+            margin: 20px auto;
+        }
+        
+        .about-us h1 {
+            margin-bottom: 20px;
+            color: #8b5e34;
+        }
+        
+        .image-gallery {
+            display: inline-block;
+            text-align: left;
+        }
+        
+        .main-image {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .thumbnails {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        
+        .thumbnails img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            margin: 0 5px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .thumbnails img:hover {
+            border-color: #8b5e34;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+            position: relative;
+        }
+        
+        footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+        
+        footer button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        footer button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <img src="logo.png" alt="Logo" class="logo">
+        <nav class="navbar">
+            <a href="Homepage.html">Homepage</a>
+            <a href="about.html">About Us</a>
+            <a href="Reacht us.html">Reach Us</a>
+            <div class="cart">
+                <a href="cart.html"><img src="keranjang.jpg" alt="Cart"> <span class="cart-count">1</span></a>
+            </div>
+            <div class="profile">
+                <img src="Logo.png" alt="Profile">
+            </div>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <div class="background">
+            <img src="beans.jpeg" alt="Coffee Beans" class="background-image">
+        </div>
+        <div class="about-us">
+            <h1>About Us</h1>
+            <div class="image-gallery">
+                <img src="a1.jpg" alt="Main Image" class="main-image">
+                <div class="thumbnails">
+                    <img src="a1.jpg" alt="Thumbnail 1">
+                    <img src="a2.jpg" alt="Thumbnail 2">
+                    <img src="a3.jpg" alt="Thumbnail 3">
+                    <img src="a4.jpg" alt="Thumbnail 4">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

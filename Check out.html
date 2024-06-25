@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #001f5b;
+            color: #fff;
+            text-align: center;
+            padding-top: 20px;
+            /* Added padding-top for better spacing */
+        }
+        
+        .container {
+            margin: 0 auto;
+            padding: 20px;
+            max-width: 400px;
+            background-color: #fff;
+            color: #000;
+            border-radius: 8px;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .back-button,
+        .continue-shopping {
+            color: #007bff;
+            text-decoration: none;
+        }
+        
+        .form-container {
+            display: none;
+            margin-top: 20px;
+            /* Added margin-top for better separation */
+        }
+        
+        .form-container.active {
+            display: block;
+        }
+        
+        .alert {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .alert-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+        
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            /* Added margin-top for button spacing */
+        }
+        
+        button:hover {
+            background-color: #0056b3;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        label {
+            margin-bottom: 5px;
+        }
+        
+        input {
+            margin-bottom: 10px;
+            padding: 8px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .qris {
+            margin-top: 20px;
+            /* Added margin-top for QRIS image */
+        }
+        
+        .qris img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <a href="cart.html" class="back-button">Back to Cart</a>
+            <h1>Checkout</h1>
+            <a href="Homepage.html" class="continue-shopping">Continue Shopping</a>
+        </header>
+
+        <div id="payment-information" class="form-container active">
+            <form>
+                <h2>Payment Information</h2>
+                <div class="qris">
+                    <img src="qris.jpg" alt="QRIS Code">
+                </div>
+                <p>Scan QRIS code to proceed with payment.</p>
+                <button type="submit">Pay Now</button>
+            </form>
+        </div>
+
+
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            showIncompleteValues();
+        });
+
+        function showIncompleteValues() {
+            document.getElementById('incomplete-values').classList.add('active');
+        }
+
+        function goBackAndFix() {
+            document.getElementById('incomplete-values').classList.remove('active');
+            document.getElementById('payment-information').classList.add('active');
+        }
+    </script>
+</body>
+
+</html>

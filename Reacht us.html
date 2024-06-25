@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            background-image: url('coffee-beans-background.jpg');
+            /* Gunakan gambar latar belakang seperti di screenshot */
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: rgba(245, 245, 245, 0.9);
+            /* Warna latar belakang dengan sedikit transparansi */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #2e2e2e;
+        }
+        
+        .header p {
+            font-size: 16px;
+            color: #555;
+        }
+        
+        .map iframe {
+            border-radius: 10px;
+            width: 100%;
+            height: 400px;
+        }
+        
+        .buttons {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        
+        .buttons button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #f4c542;
+            color: #2e2e2e;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 14px;
+        }
+        
+        .buttons button:hover {
+            background-color: #e6b53c;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        footer a {
+            margin: 0 10px;
+            display: inline-block;
+        }
+        
+        footer img {
+            width: 24px;
+            height: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Here where you can reach us!</h1>
+            <p>Jl. Damarsari, Jati Padang, Ps. Minggu, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12540</p>
+        </div>
+        <div class="map">
+            <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=106.80872344970705%2C-6.290017029690171%2C106.85405731201173%2C-6.220707568447438&amp;layer=mapnik" style="border: none;">
+            </iframe>
+        </div>
+        <div class="buttons">
+            <button onclick="location.href='tel:+620123456789'">Call Us</button>
+            <button onclick="location.href='mailto:info@example.com'">Email Us</button>
+            <button onclick="location.href='Homepage.html'">Go to Homepage and Order!</button>
+        </div>
+    </div>
+
+</body>
+
+</html>
